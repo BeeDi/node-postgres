@@ -1,6 +1,7 @@
 #node-postgres
 
 [![Build Status](https://secure.travis-ci.org/brianc/node-postgres.svg?branch=master)](http://travis-ci.org/brianc/node-postgres)
+![io.js supported](https://img.shields.io/badge/io.js-supported-green.svg)
 
 PostgreSQL client for node.js.  Pure JavaScript and optional native libpq bindings.
 
@@ -21,7 +22,7 @@ Generally you will access the PostgreSQL server through a pool of clients.  A cl
 var pg = require('pg');
 var conString = "postgres://username:password@localhost/database";
 
-//this starts initializes a connection pool
+//this initializes a connection pool
 //it will keep idle connections open for a (configurable) 30 seconds
 //and set a limit of 20 (also configurable)
 pg.connect(conString, function(err, client, done) {
@@ -31,7 +32,7 @@ pg.connect(conString, function(err, client, done) {
   client.query('SELECT $1::int AS number', ['1'], function(err, result) {
     //call `done()` to release the client back to the pool
     done();
-    
+
     if(err) {
       return console.error('error running query', err);
     }
@@ -123,7 +124,7 @@ Usually I'll pop the code into the repo as a test.  Hopefully the test fails.  T
 
 If you need help or run into _any_ issues getting node-postgres to work on your system please report a bug or contact me directly.  I am usually available via google-talk at my github account public email address.
 
-I usually tweet about any important status updates or changes to node-postgres on twitter.  
+I usually tweet about any important status updates or changes to node-postgres on twitter.
 Follow me [@briancarlson](https://twitter.com/briancarlson) to keep up to date.
 
 
@@ -146,10 +147,14 @@ node-postgres is by design pretty light on abstractions.  These are some handy m
 - [iceddev/pg-transact](https://github.com/iceddev/pg-transact) - A nicer API on node-postgres transactions
 - [sehrope/node-pg-db](https://github.com/sehrope/node-pg-db) - Simpler interface, named parameter support, transaction management and event hooks.
 - [vitaly-t/pg-promise](https://github.com/vitaly-t/pg-promise) - Use node-postgres via [Promises/A+](https://promisesaplus.com/).
+- [pg-then](https://github.com/coderhaoxin/pg-then) A tiny wrapper of `pg` for promise api.
+- [acarl/pg-restify](https://github.com/acarl/pg-restify) - Creates a generic REST API for a postgres database using restify.
+- [XeCycle/pg-template-tag](https://github.com/XeCycle/pg-template-tag) - Write queries with ES6 tagged template literals, a "poor man's query builder".
+- [jray/pg-gen](https://github.com/jray/pg-gen) - Use ES6 Generators to paginate through large Postgres result sets
 
 ## License
 
-Copyright (c) 2010-2014 Brian Carlson (brian.m.carlson@gmail.com)
+Copyright (c) 2010-2015 Brian Carlson (brian.m.carlson@gmail.com)
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
